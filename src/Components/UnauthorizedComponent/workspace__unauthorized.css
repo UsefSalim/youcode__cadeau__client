@@ -1,0 +1,17 @@
+.workspace__unauthorized {
+  width: 99vw;
+  height: 96vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(120, 94, 168);
+}
+
+.workspace__unauthorized div img {
+  width: 100px;
+}
+
+.workspace__unauthorized div {
+  text-align: center;
+
+}
