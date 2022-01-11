@@ -1,31 +1,22 @@
-import React, { useContext } from 'react';
-import { Redirect, Route } from 'react-router-dom';
-import { useAcl } from 'Hooks';
+import { useContext } from 'react';
 import { AuthContext } from 'Context';
+import { Redirect, Route } from 'react-router-dom';
 import { PagesLoader } from 'Components';
-import { Toast } from '@laazyry/sobrus-design-system';
+import { useAcl } from 'Components/AuthComponent/Acl';
 
-export const PrivateRoutes = ({ Component, to, does, ...rest }) => {
-  const { error, loading } = useContext(AuthContext);
-  const { can } = useAcl();
-
+export const PrivatRoutes = ({ path, component: Component, role, ...rest }) => {
+  const { loading, user } = useContext(AuthContext);
+  const { access } = useAcl();
   return (
     <Route
       {...rest}
-      path={to}
       render={(props) => {
-        if (loading === false) {
-          if (error) {
-            return <Redirect to={{ pathname: '/error' }} />;
-          }
-          if (does !== undefined) {
-            if (can(does)) return <Component {...props} />;
-            return <Redirect to={{ pathname: '/denied_access' }} />;
-          }
-          return <Component {...props} />;
+        if (!loading && Object.keys(user).length > 0) {
+          if (access(role)) return <Component {...props} />;
+          return <Redirect to={{ pathname: '/denied_access' }} />;
         }
         return <PagesLoader />;
       }}
-    />
+    ></Route>
   );
 };

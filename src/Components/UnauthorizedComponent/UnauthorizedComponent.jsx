@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '../../Assets/error_salim.0d46c2fb.png';
+// import Image from '../../Assets/error_salim.0d46c2fb.png';
 import './workspace__unauthorized.css';
 const UnauthorizedComponent = () => {
   return (

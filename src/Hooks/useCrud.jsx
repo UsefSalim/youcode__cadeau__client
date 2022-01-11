@@ -117,7 +117,7 @@ export const useCrud = (url = '', name = '', queryState = {}, formData = {}) => 
     if (result) {
       try {
         await API.delete(`${url}/${id}`);
-        const newData = data.filter((d) => d.id !== id);
+        const newData = data.filter((d) => d._id !== id);
         setData(newData);
         notify({
           type: 'success',
