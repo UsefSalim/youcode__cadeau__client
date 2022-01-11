@@ -2,7 +2,7 @@ import axios from 'axios';
 import axiosRetry from 'axios-retry';
 
 const AXIOS = axios.create({
-  baseURL: `${'https://api.workspace.sobrus.ovh/api/'}`,
+  baseURL: `${'http://localhost:5000/api'}`,
   responseType: 'json',
   withCredentials: true,
 });

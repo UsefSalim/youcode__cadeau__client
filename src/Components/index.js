@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { PrivateRoutes } from './AuthComponent/PrivateRoutes';
+import { PrivatRoutes } from './AuthComponent/PrivateRoutes';
 import PagesLoader from './Loaders/PagesLoader';
 import ProtectedHeader from './Header/ProtectedHeader';
 import { TableGet } from './Tableau/TableGet';
@@ -22,11 +22,11 @@ const CustomBreadcrumb = lazy(() => import('./CustomBreadcrumb/CustomBreadcrumb'
 const CustomDatePicker = lazy(() => import('./Forms/CustomDatePicker/CustomDatePicker'));
 const CustomInput = lazy(() => import('./Forms/CustomInput/CustomInput'));
 const CustomInputSelect = lazy(() => import('./Forms/CustomInputSelect/CustomInputSelect'));
-const SideMenu = lazy(() => import('./SideMenu/SideMenu'));
+
 const UnauthorizedComponent = lazy(() => import('./UnauthorizedComponent/UnauthorizedComponent'));
 
 export {
-  PrivateRoutes,
+  PrivatRoutes,
   FailureComponent,
   SuccessComponent,
   CustomBreadcrumb,
@@ -35,7 +35,6 @@ export {
   CustomInputSelect,
   ProtectedHeader,
   PagesLoader,
-  SideMenu,
   Thead,
   Theader,
   TableauLoading,
@@ -45,5 +44,5 @@ export {
   TablePost,
   Tracabilite,
   CardLikeAndComment,
-  UnauthorizedComponent
+  UnauthorizedComponent,
 };

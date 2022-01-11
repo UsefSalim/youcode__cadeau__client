@@ -1,38 +1,358 @@
-.App {
-  text-align: center;
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(120, 94, 168);
+  border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(120, 94, 168);
+}
+
+.Home_container {
+  margin: 0 3%
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #f4f4f4;
+  padding-bottom: 2rem;
+}
+
+.tabs__actions {
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+.table__container {
+  border-radius: 1rem;
+  background-color: #fff;
+  padding: 13px 30px;
+  box-shadow: 0 3px 13px 0 rgb(0 0 0 / 8%);
+}
+
+.table__notintabs {
+  border-radius: 1rem;
+  background-color: #fff;
+  padding: 13px 30px;
+  box-shadow: 0 3px 13px 0 rgb(0 0 0 / 8%);
+  margin: 0;
+}
+
+.table__view__container {
+  border-radius: 1rem;
+  background-color: #fff;
+  padding: 13px 30px;
+  box-shadow: 0 3px 13px 0 rgb(0 0 0 / 8%);
+}
+
+.MuiPaper-elevation1 {
+  border-radius: 1rem !important;
+  box-shadow: 0 3px 13px 0 rgb(0 0 0 / 8%) !important;
+}
+
+th {
+  text-transform: inherit !important;
+}
+
+.table thead th {
+  white-space: nowrap;
+}
+
+.table td {
+  white-space: nowrap;
+}
+
+.table tr {
+  cursor: pointer;
+}
+
+.sob-table-search-submit {
+  background-color: rgb(120, 94, 168);
+}
+
+.sob-form-control {
+  /* padding: 0.5rem 0.875rem; */
+  color: hsl(0, 0%, 50%);
+  font-size: 0.875rem;
+}
+
+.dropdown-menu {
+  list-style: none;
+  padding: 0.6rem 1rem;
+  margin-top: 24px;
+  cursor: pointer;
+}
+
+.sob-invalid-feedback {
+  margin-left: 4px;
+  display: block !important;
+}
+
+.view .sob-table-header {
+  padding: 0;
+}
+
+/* 
+.sob-modal {
+  bottom: inherit;
+} */
+
+.rug .rug-items.__card {
+  grid-gap: 60px !important;
+}
+
+.rug-item .sob-form-control {
+  display: none !important;
+}
+
+.TablePage__primary {
+  background-color: rgb(120, 94, 168);
+}
+
+/* .table .table-order-container {
+  display: none;
+} */
+
+/* gg */
+.basic-select .basic-select__control {
+  padding: 0 !important;
+}
+
+.HomePage_contianer {
+  margin: 0 3%;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+}
+
+.sob-card {
+  margin: 0;
+  box-shadow: 0 3px 13px 0 rgb(0 0 0 / 8%);
+}
+
+.sob-audit-card {
+  box-shadow: 0 3px 13px 0 rgb(0 0 0 / 8%);
+}
+
+.cart_title_header_container {
+  align-items: flex-end;
+}
+
+.cart_title_header_container_button {
+  background-color: #b9b9b915;
+}
+
+.cart_title {
+  font-family: inherit;
+  margin-left: 1rem;
+}
+
+.cart_title_client_name {
+  font-weight: bolder;
+  margin-left: 0.3rem;
+}
+
+.wrapperClassName {
+  background: #fff !important;
+  border: 1px solid #c6c6c6 !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.toolbarClassName {
+  border-bottom: 1px solid #c6c6c6 !important;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  background-color: #fdfdfd;
+}
+
+.Button_outline:hover {
+  background-color: #785ea8;
+  color: #fff !important;
+}
+
+.dropzone {
+  background-color: #fff;
+  border: 1px solid rgb(187, 200, 211);
+  padding: 3% 10%;
+  border-radius: 4px;
+  color: rgb(120, 94, 168);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.sob-accordion__panel_item.active {
+  background-color: rgba(120, 94, 168, 0.08) !important;
+  color: rgb(120, 94, 168);
+  font-weight: 600;
+}
+
+.breadcrumb-item,
+.breadcrumb-item:hover,
+a:hover {
+  color: rgb(120, 94, 168);
+}
+
+.sobrus_desc_container {
+  background-color: rgba(120, 94, 168, 0.23);
+  margin-top: 7px;
+  padding: 10px;
+  border: 0.5px dotted rgb(120, 94, 168);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  list-style: none;
+}
+
+.sobrus_desc_container ul {
+  list-style: none;
+}
+
+.react-ip-input {
+  width: max-content;
+}
+
+.SettingsTransactionsKilometer_paragraphe {
+  font-weight: 600;
+  color: rgb(120, 94, 168);
+  font-size: 12px;
+}
+
+.modification_CSV_dropzone {
+  align-items: center;
+  border-style: dashed;
+  border-width: 2px;
+  border-radius: 20px;
+  border-color: rgb(204, 204, 204);
   display: flex;
   flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.card_header_date {
+  font-weight: 300;
+}
+
+.sob-breadcrumb-singletitle .breadcrumb-title:after {
+  width: 0;
+}
+
+.editorClassName {
+  min-height: 200px;
+  padding: 8px;
+}
+
+.toolbarClassName {
+  justify-content: center !important;
+  border-radius: 8px !important;
+  box-shadow: inset 0px 0px 20px 12px rgba(120, 94, 168, 75%) !important;
+}
+
+.wrapperClassName {
+  padding: 8px !important;
+}
+
+.rdw-option-active {
+  background-color: #785ea8 !important;
+  color: #fafafa !important;
+}
+
+.checkbox input:checked {
+  color: #785ea8 !important;
+}
+
+.TooltipMenu__actions-trigger-btn svg {
+  color: #785ea8 !important;
+}
+
+#form_add_post .sob-form-group {
+  flex: 1;
+}
+
+#form_add_post .sob-form-group .sob-form-control {
+  width: -webkit-fill-available;
+}
+
+.form__avatar div {
+  box-shadow: 0 3px 5px 1px rgb(0 0 0 / 25%);
+  border-radius: 50%;
+}
+
+.card_content_image_container {
+  max-height: 100%;
+  border-radius: 8px;
+}
+
+.card_content_image_container img {
+  border-radius: 8px;
+}
+
+.infinite-scroll-component {
+  overflow: visible !important;
+}
+
+/* #my-form .css-2613qy-menu {
+  display: block !important;
+  z-index: 100000000 !important;
+} */
+.sob-modal {
+  overflow: visible !important;
+}
+
+.sob-droppable-container {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.sob-droppable-container::-webkit-scrollbar {
+  display: none;
+}
+
+.sob-droppable-container {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.sob-droppable-title-container {
+  background-color: rgba(120, 94, 168, 70%) !important;
+}
+
+.sob-droppable-title-container svg,
+.sob-droppable-title {
+  color: #fafafa !important;
+}
+
+.sob-form-control {
+  padding: .5rem !important;
+}
+
+.sob-invalid-feedback {
+  display: block !important;
+}
+
+.basic-select .basic-select__control{
+  padding: 0 !important;
+}
+
+.c_register_container {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
