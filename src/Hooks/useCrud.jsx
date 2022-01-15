@@ -112,6 +112,29 @@ export const useCrud = (url = '', name = '', queryState = {}, formData = {}) => 
       }
     }
   };
+  const PutUpdate = async (url, formData, redirrectUrl = '', redirrect = false) => {
+    try {
+      setLoading(true);
+      const { data } = await API.put(`${url}`, formData);
+      setLoading(false);
+      history.push({
+        pathname: redirrect || `${redirrectUrl}/${data?.id}`,
+        state: { detail: 'success', action: 'modiffier' },
+      });
+    } catch (error) {
+      if (error?.response?.data?.message?.startsWith('code')) {
+        setAuthError(error?.response?.data?.message);
+        return 0;
+      } else {
+        notify({
+          type: 'danger',
+          msg:
+            error?.response?.data?.message || 'Erreur Serveur Veiller contacter un administrateur',
+          delay: 5000,
+        });
+      }
+    }
+  };
   const Delete = async (url, id, msgData) => {
     const result = confirm('Voulez-vous vraiment supprimer ce poste');
     if (result) {
@@ -154,6 +177,7 @@ export const useCrud = (url = '', name = '', queryState = {}, formData = {}) => 
     Delete,
     Update,
     Add,
+    PutUpdate,
   };
 };
 

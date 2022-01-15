@@ -24,6 +24,10 @@ export const sellerRoutes = [
     path: '/shope/article/add_or_update',
     component: SellerArticlesAddOrUpdate,
   },
+  {
+    path: '/shope/article/add_or_update/:id',
+    component: SellerArticlesAddOrUpdate,
+  },
 ];
 export const adminRoutes = [
   {
