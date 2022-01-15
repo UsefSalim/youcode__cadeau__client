@@ -1,128 +1,85 @@
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
-import React, { useState, useContext } from 'react';
-import { Link, NavLink as RouterNavLink, useHistory } from 'react-router-dom';
-import { AuthContext } from 'Context/AuthContext';
-// import { NavPath } from 'Values/navPath';
+import React, { useState } from 'react';
 import {
-  Collapse,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  NavItemMore,
-  NavItemMoreSubMenu,
-  NavItemMoreBtn,
-  NavUserProfile,
-  DropdownItem,
-  NavLogoutLink,
+  IconButton,
+  TooltipMenu,
+  TooltipMenuView,
+  TooltipMenuEdit,
+  TooltipMenuDownload,
+  TooltipMenuPrint,
+  ButtonGroup,
 } from '@laazyry/sobrus-design-system';
-import { Navbar } from '../Navbar/Navbar';
 import './Header.css';
-import { useAcl } from 'Components/AuthComponent/Acl';
-import { NotificationsContext } from 'Context/NotificationsContext';
-const Header = () => {
-  const history = useHistory();
-  const [showDropDown, setShowDropDown] = useState(false);
-  const { user, loading } = useContext(AuthContext);
-  const { state, loadingNotifications } = useContext(NotificationsContext);
-  const { can } = useAcl();
-  // const handleDelete = async ()=>{
-  //   try {
-  //     await API.get
-  //   } catch (error) {
+import Logo from 'assets/Logo.png';
+import { Link, NavLink as RouterNavLink, useHistory } from 'react-router-dom';
+import { AuthContext } from 'Context';
+import { useContext } from 'react';
+import { AiOutlineLogin, BsFillPersonPlusFill } from 'react-icons/all';
+import { CustomInput } from 'Components';
+import AccountPage from './AccountPage/AccountPage';
+import { Navbar } from 'Components/Navbar/Navbar';
+import { Button } from '@laazyry/sobrus-design-system';
 
-  //   }
-  // }
+const Header = () => {
+  const { user, logout, loading } = useContext(AuthContext);
+  const [open, setOpen] = useState();
+  const history = useHistory();
+  const handelReddirect = () => {
+    if (user?.role === 'User') history.push('/profile');
+    if (user?.role === 'Seller') history.push('/shope');
+    if (user?.role === 'Admin') history.push('/dashboard');
+  };
+  console.log(user?.role);
   return (
-    // <div
-    //   style={{
-    //     width: '100%',
-    //   }}
-    // >
-    //   <Navbar style={{ padding: '0 3%' }}>
-    //     <NavbarBrand>
-    //       <Link to='/home' className='Header_logo'>
-    //         {/* <img src={EcoLogo} width="150" /> */}
-    //         <p>
-    //           <strong>Sobrus</strong> WorkSpace
-    //         </p>
-    //       </Link>
-    //     </NavbarBrand>
-    //     <Collapse>
-    //       <Nav>
-    //         {NavPath?.map((headerItem, index) => (
-    //           <div
-    //             // eslint-disable-next-line react/no-array-index-key
-    //             key={index}
-    //             className='HeaderItem'
-    //             onMouseEnter={() => {
-    //               setShowDropDown(headerItem?.itemTitle);
-    //             }}
-    //             onMouseOut={() => {
-    //               setShowDropDown(false);
-    //             }}
-    //           >
-    //             <NavItem>
-    //               {headerItem?.droped ? (
-    //                 <NavLink>{headerItem?.itemTitle}</NavLink>
-    //               ) : (
-    //                 headerItem?.does &&
-    //                 can(headerItem?.does) && (
-    //                   <NavLink tag={RouterNavLink} to={headerItem?.to}>
-    //                     {headerItem?.itemTitle}
-    //                   </NavLink>
-    //                 )
-    //               )}
-    //               {showDropDown === headerItem?.itemTitle && (
-    //                 <div className='subHeaderItem'>
-    //                   {headerItem?.dropDown?.map(
-    //                     (subHeaderItem, key) =>
-    //                       subHeaderItem?.does &&
-    //                       can(subHeaderItem?.does) && (
-    //                         <NavLink
-    //                           // eslint-disable-next-line react/no-array-index-key
-    //                           key={`header${key}`}
-    //                           tag={RouterNavLink}
-    //                           to={subHeaderItem?.to}
-    //                           onMouseEnter={() => setShowDropDown(headerItem?.itemTitle)}
-    //                           onMouseOut={() => setShowDropDown(false)}
-    //                         >
-    //                           {subHeaderItem?.itemTitle}
-    //                         </NavLink>
-    //                       )
-    //                   )}
-    //                 </div>
-    //               )}
-    //             </NavItem>
-    //           </div>
-    //         ))}
-    //         <NavItemMore>
-    //           <NavItemMoreBtn title='Plus' />
-    //           <NavItemMoreSubMenu />
-    //         </NavItemMore>
-    //       </Nav>
-    //       <div className='navbar__part2'>
-    //         {!loadingNotifications && can('get_collaborater_notifications') && (
-    //           <div
-    //             className={
-    //               state?.totalnotifications > 0 ? 'nav__notifications' : 'nav__notifications__empty'
-    //             }
-    //             onClick={() => history.push('/notifications')}
-    //           >
-    //             <p style={{ marginBottom: 0, fontWeight: 700 }}>{state?.totalnotifications}</p>
-    //             <small style={{ fontSize: 12 }}>Notif</small>
-    //           </div>
-    //         )}
-    //         <NavUserProfile fullName={!loading ? `${user?.lastName} ${user?.firstName}` : ''}>
-    //           <DropdownItem className='last-dropdown-item'>
-    //             <NavLogoutLink onClick={() => {}} />
-    //           </DropdownItem>
-    //         </NavUserProfile>
-    //       </div>
-    //     </Collapse>
-    //   </Navbar>
-    // </div>
-    <div>Nave</div>
+    <div className='header'>
+      {open && <AccountPage open={open} setOpen={setOpen} />}
+      <Link to='/home' className='Header_logo'>
+        <div className='header__logo'>
+          <img width='200px' src={Logo} alt='' />
+        </div>
+      </Link>
+      <div className='headerSearch'>
+        <CustomInput placeholder='Chercher-vous quelque chose ?' />
+      </div>
+      <div className='header__icons'>
+        {!loading && Object.keys(user).length > 0 ? (
+          <div style={{ display: 'flex' }}>
+            <Button
+              outline
+              color='danger'
+              style={{ borderRight: 0, borderLeft: 0 }}
+              onClick={handelReddirect}
+            >
+              {user?.role === 'Seller' ? 'Store' : user?.role === 'Admin' ? 'Dashboard' : 'Profile'}
+            </Button>
+            <Button
+              onClick={() => logout()}
+              outline
+              color='danger'
+              style={{ borderRight: 0, borderLeft: 0 }}
+            >
+              Deconnexion
+            </Button>
+            {/* </ButtonGroup> */}
+          </div>
+        ) : (
+          <IconButton
+            onClick={() => setOpen(!open)}
+            style={{
+              margin: '0 4px',
+              lineHeight: 1,
+              display: 'flex',
+              alignItems: 'center',
+              backgroundColor: 'red',
+              color: '#fafafa',
+            }}
+            color='red'
+          >
+            <span style={{ marginRight: 12 }}>Mon Compte</span> <BsFillPersonPlusFill size={20} />
+          </IconButton>
+        )}
+      </div>
+    </div>
   );
 };
 

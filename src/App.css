@@ -345,7 +345,7 @@ a:hover {
   display: block !important;
 }
 
-.basic-select .basic-select__control{
+.basic-select .basic-select__control {
   padding: 0 !important;
 }
 
@@ -355,4 +355,59 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+
+
+.nothingfound {
+  width: 50%;
+  margin: 0 40%;
+  font-size: 20px;
+  font-weight: 700;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.Productdetails {
+  width: 100%;
+}
+.dotcart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 800;
+  position: absolute;
+  top: 13px;
+  color: #ebebeb;
+  right: 130px;
+  height: 25px;
+  width: 25px;
+  border-radius: 10px;
+  background-color: #0071dc;
+}
+.loading {
+  z-index: 20;
+  text-align: center;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.logo {
+  width: 36%;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+.sob-modal-content{
+  width: auto !important;
+  /* background-color: red !important; */
+  border-radius: 12px;
 }

@@ -1,85 +1,39 @@
-.nav-item a.active,
-.nav-link:hover {
-  background-color: rgb(120, 94, 168, 0.08);
-  color: rgb(120, 94, 168);
-  font-weight: bold;
-}
-
-.nav-item a.active:after {
-  background-color: rgb(120, 94, 168);
-}
-
-.HeaderItem {
-  position: relative;
-}
-
-.subHeaderItem {
-  position: absolute;
-  top: 100%;
-  background-color: #fff;
-  z-index: 10;
-}
-
-.subHeaderItem a {
-  padding: 20px 18px;
-}
-
-.subHeaderItem a:first-child {
-  border-bottom: 1px solid #f0f0f0;
-  margin: auto;
-}
-
-.navbar-user-avatar-container {
-  background-color: rgba(140, 154, 165, 0.04) !important;
-}
-
-.navbar-user-avatar-container svg {
-  color: rgb(120, 94, 168) !important;
-}
-
-.Header_logo p {
-  margin-bottom: 0px;
-  color: rgb(120, 94, 168);
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
-.Header_logo:hover {
-  color: rgb(120, 94, 168);
-}
-
-.Header_logo {
-  text-decoration: none;
-}
-
-.navbar__part2 {
+.header {
   display: flex;
-  align-items: center;
+  justify-content: space-evenly;
+  height: 4.6rem;
+}
+
+.header__logo img {
   height: 100%;
 }
 
-.nav__notifications {
-  cursor: pointer;
-  color: #f0f0f0;
-  text-align: center;
-  padding: 0.5rem 1rem;
-  height: 90%;
-  background-color: rgb(220, 53, 69);
-  border-radius: 0 0 8px 8px;
-  margin: 0 1rem;
-  margin-top: -10px;
-  box-shadow: 0px 1px 5px 2px rgb(220 53 69 / 80%);
+.header__icons {
+  display: flex;
+  align-items: center;
 }
 
-.nav__notifications__empty {
-  cursor: pointer;
-  color: #f0f0f0;
-  text-align: center;
-  padding: 0.5rem 1rem;
-  height: 90%;
-  background-color: rgb(120, 94, 168);
-  border-radius: 0 0 8px 8px;
-  margin: 0 1rem;
-  margin-top: -10px;
-  box-shadow: 0px 1px 5px 2px rgb(120 94 168 / 80%);
+.headerSearch {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 570px;
+}
+
+.headerSearch .sob-form-group {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.headerSearch .sob-form-control {
+  border-radius: 50px;
+}
+
+
+.header__icons .sob-btn {
+  margin: 0 !important
+}
+
+.header .sob-icon-btn {
+  padding: 0.6rem !important
 }

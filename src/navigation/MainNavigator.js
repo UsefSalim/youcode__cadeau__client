@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Home, Register, Login } from 'Pages';
-import SuccessComponent from './../Components/AuthComponent/SuccessComponent';
-import { privateRoutes } from 'values/privateRoutes';
-import { PrivatRoutes } from 'Components';
+import { Home } from 'Pages';
+import { PagesLoader } from 'Components';
+import Header from './../Components/Header/Header';
+import { AdminRoutes, SellerRoutes, UserRoutes } from './ProtectedRoutes';
+import { sellerRoutes, adminRoutes, userRoutes } from './dataRoutes';
 
 const MainNavigator = () => {
   return (
     <BrowserRouter>
-      <React.Suspense fallback={<p>Loading ...</p>}>
+      <React.Suspense fallback={<PagesLoader />}>
+        <Header />
         <Switch>
           <Route path='/' exact render={(props) => <Home {...props} />} />
-          <Route path='/register' exact render={(props) => <Register {...props} />} />
-          <Route path='/login' exact render={(props) => <Login {...props} />} />
-          <Route path='/success' exact render={(props) => <SuccessComponent {...props} />} />
-          {
-            privateRoutes?.map(r=>(
-              <PrivatRoutes  path={r?.to} component={r?.component} role={r?.role} />
-            ))
-          }
+          {sellerRoutes.map((route, i) => (
+            <SellerRoutes {...route} component={route.component} />
+          ))}
+          {userRoutes.map((route, i) => (
+            <UserRoutes {...route} component={route.component} />
+          ))}
+          {adminRoutes.map((route, i) => (
+            <AdminRoutes {...route} component={route.component} />
+          ))}
         </Switch>
       </React.Suspense>
     </BrowserRouter>
