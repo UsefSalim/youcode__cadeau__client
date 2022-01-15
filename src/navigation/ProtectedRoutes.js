@@ -2,9 +2,7 @@ import { AuthContext } from 'Context';
 import { useContext } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
-export const UserRoutes = ({ path, component: Component, ...rest }) => {
-  const { user, isAuthenticated } = useContext(AuthContext);
-  console.log({ user, isAuthenticated });
+export const UserRoutes = ({ path, component: Component, isAuthenticated,user, ...rest }) => {
   return (
     <Route
       {...rest}
@@ -23,8 +21,7 @@ export const UserRoutes = ({ path, component: Component, ...rest }) => {
     />
   );
 };
-export const AdminRoutes = ({ path, component: Component, ...rest }) => {
-  const { user, isAuthenticated } = useContext(AuthContext);
+export const AdminRoutes = ({ path, component: Component,isAuthenticated,user, ...rest }) => {
   return (
     <Route
       {...rest}
@@ -43,8 +40,7 @@ export const AdminRoutes = ({ path, component: Component, ...rest }) => {
     />
   );
 };
-export const SellerRoutes = ({ path, component: Component, ...rest }) => {
-  const { user, isAuthenticated } = useContext(AuthContext);
+export const SellerRoutes = ({ path, component: Component,isAuthenticated,user, ...rest }) => {
   return (
     <Route
       {...rest}

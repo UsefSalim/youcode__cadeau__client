@@ -1,0 +1,119 @@
+.sob-image-picker{
+  display: flex;
+  flex-direction: column;
+}
+.sob-image-picker-header{
+  border-width: 0;
+  background: linear-gradient(to right,#02829f 50%, rgba(255, 255, 255, 0) 0%), linear-gradient(#02829f 50%, rgba(255, 255, 255, 0) 0%), linear-gradient(to right, #02829f 50%, rgba(255, 255, 255, 0) 0%), linear-gradient(#02829f 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: top, right, bottom, left;
+  background-repeat: repeat-x, repeat-y;
+  background-size: 10px 1px, 1px 10px;
+  height: 159px !important;
+  width: 100%!important;
+  min-width: 300px!important;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+
+}
+.sob-image-picker-header-icon{
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+.sob-image-picker-header-desc{
+  font-family: Poppins;
+  font-size: 0.813rem;
+  color: #000000;
+  font-weight: 300;
+  max-width: 228px;
+  line-height: 1.5;
+  transition: all 0.15s ease-in-out;
+
+}
+
+.sob-image-picker-direction-horizontal{
+  flex-direction: row;
+}
+.sob-image-picker-direction-vertical{
+  flex-direction: column;
+}
+.sob-image-picker .rug-card.__error{
+  margin-top: 0;
+  margin-left: 30px;
+  border: 0px solid #ff2d55;
+}
+.sob-image-picker-direction-vertical .rug-card.__error{
+  margin-top: 20px;
+  margin-left: 0px;
+  border: 0px solid #ff2d55;
+}
+
+.sob-image-picker .rug-card{
+  height: 159px;
+  min-width: 300px;
+  width: 100%;
+}
+
+.sob-image-picker .rug-card{
+  border-radius: 8px;
+}
+.sob-image-picker .card-image-actions{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background-color: #fff;
+  display: flex;
+}
+.sob-image-picker .card-image-actions > button{
+  display: flex;
+  flex: 1;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.sob-image-picker .card-image-actions .card-image-action-delete{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(240, 90, 41, 0.06);
+  color: #f05a29;
+  font-family: Poppins;
+  font-size: 0.813rem;
+  transition: all 0.15s ease-in-out;
+
+}
+.sob-image-picker .card-image-actions .card-image-action-update{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(249, 170, 0, 0.08);
+  color: #eaa207;
+  font-family: Poppins;
+  font-size: 0.813rem;
+}
+
+.sob-image-picker .card-image-actions .card-image-action-delete:hover{
+  background-color: rgba(240, 90, 41, 0.1);
+}
+.sob-image-picker .card-image-actions .card-image-action-update:hover{
+  background-color: rgba(249, 170, 0, 0.1);
+}
+.sob-image-is-drag{
+  background-size: 10px 2px, 2px 10px;
+
+}
+.sob-image-is-drag .sob-image-picker-header-desc{
+  color: #02829f;
+}

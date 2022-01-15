@@ -6,8 +6,8 @@ import { Button, Card, CardTitle, Row, Col } from '@laazyry/sobrus-design-system
 import { useCrud, useGetOne } from 'Hooks';
 import { useParams } from 'react-router-dom';
 
-const CategorieAddOrUpdate = () => {
-  const { Add } = useCrud();
+const AdminProfileCategoriesAddOrUpdate = () => {
+  const { Add, Update } = useCrud();
   const { id } = useParams();
   const [initialValues, setInitialValues] = useState({
     name: '',
@@ -28,7 +28,9 @@ const CategorieAddOrUpdate = () => {
       name: Yup.string().required('ce champs ne doit pas etre vide'),
     }),
     onSubmit: (values) => {
-      Add('/categories/add', values, '', '/admin/profile');
+      id
+        ? Update(`/categories/${id}`, values, '', '/dashboard/category')
+        : Add(`/categories/add`, values, '', '/dashboard/category');
     },
   });
   console.log(formik.errors);
@@ -71,4 +73,4 @@ const CategorieAddOrUpdate = () => {
   );
 };
 
-export default CategorieAddOrUpdate;
+export default AdminProfileCategoriesAddOrUpdate;

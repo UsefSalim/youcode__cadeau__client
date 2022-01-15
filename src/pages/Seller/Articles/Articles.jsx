@@ -8,9 +8,8 @@ import { AiOutlineEdit } from 'react-icons/ai';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from 'Context';
 
-const Articles = () => {
+const SellerArticles = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   const initialQueryState = {
     page: 1,
     limit: 20,
@@ -88,7 +87,7 @@ const Articles = () => {
             style={{ backgroundColor: '#785ea8', marginRight: 0 }}
             color='primary'
             onClick={() => {
-              history.push('/admin/articles/add_or_update');
+              history.push('/shope/article/add_or_update');
             }}
           >
             Ajouter une article
@@ -134,4 +133,4 @@ const Articles = () => {
   );
 };
 
-export default Articles;
+export default SellerArticles;

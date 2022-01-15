@@ -1,7 +1,7 @@
 import { CustomBreadcrumb, TableGet } from 'Components';
 import React, { useEffect, useState } from 'react';
-import { Button, IconButton } from '@laazyry/sobrus-design-system';
-import { Link, useHistory } from 'react-router-dom';
+import { Button, IconButton, notify } from '@laazyry/sobrus-design-system';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useCrud } from 'Hooks';
 import { IoCloseSharp } from 'react-icons/io5';
 import { AiOutlineEdit } from 'react-icons/ai';
@@ -13,11 +13,24 @@ const Categories = () => {
     order: 'DESC',
     orderBy: 'name',
   };
+  const history = useHistory()
+  const location = useLocation()
+  useEffect(() => {
+    if (history?.action === 'PUSH')
+      if (location?.state?.detail === 'success') {
+        notify({
+          type: 'success',
+          msg: location?.state?.message
+            ? `${location?.state?.message} avec succes`
+            : `Categorie ${location?.state?.action}  avec succes`,
+          delay: 5000,
+        });
+      }
+  }, [location, history]);
   const dataFromLocalstorage = JSON.parse(localStorage.getItem('categories'));
   const localstorageSearch = dataFromLocalstorage && {
     name: dataFromLocalstorage?.name,
   };
-  const history = useHistory();
   const [queryState, setQueryState] = useState(
     localstorageSearch ? { ...initialQueryState, ...localstorageSearch } : initialQueryState
   );
@@ -51,7 +64,7 @@ const Categories = () => {
             style={{ backgroundColor: '#785ea8', marginRight: 0 }}
             color='primary'
             onClick={() => {
-              history.push('/admin/categories/add_or_update');
+              history.push('/dashboard/category/add_or_update');
             }}
           >
             Ajouter une categorie
@@ -61,7 +74,7 @@ const Categories = () => {
       <TableGet {...tableProps}>
         {data?.map((d) => (
           <tr key={d._id}>
-            <td onClick={() => history.push(`/admin/articles/${d?._id}`)}>{d?.name}</td>
+            <td>{d?.name}</td>
             <td style={{ textAlign: 'right' }}>
               <IconButton
                 style={{
@@ -74,7 +87,7 @@ const Categories = () => {
               >
                 <IoCloseSharp size={20} />
               </IconButton>
-              <Link to={`/admin/categories/add_or_update/${d?._id}`}>
+              <Link to={`/dashboard/category/add_or_update/${d?._id}`}>
                 <IconButton
                   style={{ margin: '0 4px', lineHeight: 1 }}
                   color='primary'

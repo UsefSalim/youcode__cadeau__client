@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import MainNavigator from './navigation/MainNavigator';
 import { AuthContext } from 'Context';
@@ -14,7 +14,6 @@ const App = () => {
     login,
     register,
   } = useAuth();
-
   return (
     <AuthContext.Provider value={{ loading, user, logout, login, register ,isAuthenticated }}>
       <Toast />

@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, IconButton, Tag } from '@laazyry/sobrus-design-system';
 import { Link, useHistory } from 'react-router-dom';
 import { useCrud } from 'Hooks';
-import { IoCloseSharp } from 'react-icons/io5';
-import { AiOutlineEdit } from 'react-icons/ai';
+import { FcCheckmark ,IoCloseSharp } from 'react-icons/all';
 import API from 'Services/API';
 
 const AdminProfile = () => {
@@ -23,7 +22,7 @@ const AdminProfile = () => {
     localstorageSearch ? { ...initialQueryState, ...localstorageSearch } : initialQueryState
   );
   const { data, loading, pages, FetchGet, setData, Delete } = useCrud(
-    '/auth/sellers-not-valide',
+    '/user/sellers-not-valide',
     'data',
     queryState
   );
@@ -57,9 +56,10 @@ const AdminProfile = () => {
     data,
   };
   useEffect(() => FetchGet(), [FetchGet]);
+   console.log(data)
   const handelValidation = async (d) => {
     try {
-      const { data } = await API.put(`/auth/sellers-not-valide/${d?._id}`, { d, valid: true });
+      const { data } = await API.put(`/user/sellers-not-valide/${d?._id}`, { d, valid: true });
       console.log(data);
       setData((prev) =>
         prev.map((a) => {
@@ -76,10 +76,10 @@ const AdminProfile = () => {
       <CustomBreadcrumb title='Tableau de bord' body={[{ el: 'Vendeurs' }]}>
         <div>
           <Button
-            style={{ backgroundColor: '#785ea8', marginRight: 0 }}
+            style={{ backgroundColor: 'red', marginRight: 0 }}
             color='primary'
             onClick={() => {
-              history.push('/admin/categories/add_or_update');
+              history.push('/dashboard/category');
             }}
           >
             Ajouter une categorie
@@ -98,14 +98,18 @@ const AdminProfile = () => {
               )}
             </td>
             <td style={{ textAlign: 'right' }}>
-              <IconButton
-                onClick={() => handelValidation(d)}
-                style={{ margin: '0 4px', lineHeight: 1 }}
-                color='primary'
-                title='valider'
-              >
-                <AiOutlineEdit size={20} />
-              </IconButton>
+              {
+                !d?.valid &&(
+                   <IconButton
+                  onClick={() => handelValidation(d)}
+                  style={{ margin: '0 4px', lineHeight: 1 }}
+                  color='primary'
+                  title='valider'
+                >
+                  <FcCheckmark size={20} />
+                </IconButton>
+                )
+              }
               <IconButton
                 onClick={() => Delete(`/auth/sellers-not-valide`, d?._id, 'Vendeur')}
                 style={{ margin: '0 4px', lineHeight: 1 }}
