@@ -1,0 +1,99 @@
+.categories__pub span {
+  background: white;
+  color: red;
+  font-size: .75rem;
+  font-weight: 600;
+  padding: 0.5rem;
+  border-radius: 0.1875rem;
+  margin-right: 1rem;
+}
+
+.categories__pub {
+  padding: 0.4375rem 1.25rem;
+  background: red;
+  z-index: 3;
+  text-align: center;
+  margin: 1rem 0;
+  color: #fafafa;
+}
+
+.header__card {
+  display: flex;
+  align-items: center;
+}
+
+.header__card .sob-icon-btn {
+  margin: 0 !important;
+}
+
+.AccordionCard_container_content {
+  display: flex !important;
+  flex-direction: column !important;
+  height: auto !important;
+}
+
+.AccordionCard_container_content span {
+  margin: .4rem 1rem;
+  text-decoration: none;
+  color: red;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.AccordionCard_container_content a {
+  text-decoration: none;
+}
+
+.card__article {
+  box-shadow: 0 3px 13px 0 rgb(0 0 0 / 8%);
+  border-radius: 12px;
+  width: 30%;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+
+.card__article h3 {
+  padding: 0 1rem;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.card__articles {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.images__container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.images__container img {
+  width: 100%;
+  height: 300px;
+  transition: transform .2s;
+  /* Animation */
+}
+
+.images__container img:hover {
+  transform: scale(1.5);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.article__description {
+  font-size: 14px;
+  font-weight: 300;
+  color: darkcyan;
+  padding: 0.2rem 1rem;
+  margin-bottom: 0;
+}
+
+.article__prix {
+  font-size: 14px;
+  font-weight: 300;
+  color: RED;
+  padding: 0.2rem 1rem;
+  margin-bottom: 0;
+}

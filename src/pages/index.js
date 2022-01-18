@@ -9,6 +9,7 @@ export const AdminProfileCategoriesAddOrUpdate = lazy(() =>
 
 // ------------------------------ //
 export const UserProfile = lazy(() => import('./User/UserProfile/UserProfile'));
+export const Checkout = lazy(() => import('./Checkout/Checkout'));
 // ------------------------------ //
 
 export const SellerProfile = lazy(() => import('./Seller/SellerProfile/SellerProfile'));

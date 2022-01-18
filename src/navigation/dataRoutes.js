@@ -9,16 +9,19 @@ import {
   AdminProfileCategoriesAddOrUpdate,
   //
   UserProfile,
+  Checkout,
 } from 'Pages';
 
 export const sellerRoutes = [
   {
     path: '/shope',
     component: SellerProfile,
+    name:"Shope"
   },
   {
     path: '/shope/article',
     component: SellerArticles,
+    name:"article"
   },
   {
     path: '/shope/article/add_or_update',
@@ -46,10 +49,15 @@ export const adminRoutes = [
     path: '/dashboard/category/add_or_update/:id',
     component: AdminProfileCategoriesAddOrUpdate,
   },
+
 ];
 export const userRoutes = [
   {
     path: '/profile',
     component: UserProfile,
+  },
+  {
+    path: '/checkout',
+    component: Checkout,
   },
 ];

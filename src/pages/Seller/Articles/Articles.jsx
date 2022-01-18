@@ -7,6 +7,7 @@ import { IoCloseSharp } from 'react-icons/io5';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from 'Context';
+import { sliceText } from './../../../Services/functionHelpers';
 
 const SellerArticles = () => {
   const { user } = useContext(AuthContext);
@@ -81,7 +82,7 @@ const SellerArticles = () => {
   useEffect(() => FetchGet(), [FetchGet]);
   return (
     <div className='Home_container'>
-      <CustomBreadcrumb title='Tableau de bord' body={[{ el: 'Articles' }]}>
+      <CustomBreadcrumb title='Tableau de bord' body={[{ el: 'Mes Articles' }]}>
         <div>
           <Button
             style={{ backgroundColor: '#785ea8', marginRight: 0 }}
@@ -99,7 +100,7 @@ const SellerArticles = () => {
           <tr key={d._id}>
             <td>{d?.name}</td>
             <td>{d?.prix}.00 MAD</td>
-            <td>{d?.description || '--'}</td>
+            <td>{sliceText(d?.description, 60) || '--'}</td>
             <td>{d?.brand || '--'}</td>
             <td>{d?.countInStock || '--'}</td>
             <td>{d?.categorie?.name || '--'}</td>
@@ -110,13 +111,13 @@ const SellerArticles = () => {
                   margin: '0 4px',
                   lineHeight: 1,
                 }}
-                onClick={() => Delete(`/article`, d?._id, 'Article')}
+                onClick={() => Delete(`/articles`, d?._id, 'Article')}
                 color='danger'
                 title='supprimer'
               >
                 <IoCloseSharp size={20} />
               </IconButton>
-              <Link to={`/admin/articles/add_or_update/${d?._id}`}>
+              <Link to={`/shope/article/add_or_update/${d?._id}`}>
                 <IconButton
                   style={{ margin: '0 4px', lineHeight: 1 }}
                   color='primary'

@@ -5,6 +5,7 @@ import { useNotifications } from './useNotifications';
 import { useOptions } from './useOptions';
 import { useTitle } from './useTitle';
 import { useAcl } from './useAcl';
+import { usePanier } from './usePanier';
 
 export {
   useTitle,
@@ -16,4 +17,5 @@ export {
   useAuth,
   useAcl,
   usePostOne,
+  usePanier
 };

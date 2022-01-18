@@ -1,0 +1,25 @@
+.home__steps {
+  border: 1px dashed red;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
+
+.home__steps .home__step {
+  width: 40%;
+}
+
+.sob-stepItem {
+  margin-top: 0 !important;
+}
+
+.sob-stepButton {
+  background-color: rgba(210, 0, 0, 0.37) !important;
+}
+
+.sob-stepButton svg {
+  color: red !important;
+}
